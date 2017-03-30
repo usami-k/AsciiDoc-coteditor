@@ -1,0 +1,23 @@
+AsciiDoc syntax style for CotEditor
+===================================
+
+:CotEditor: https://coteditor.com[CotEditor]
+:AsciiDoc: http://asciidoc.org[AsciiDoc]
+:UserGuide: http://asciidoc.org/userguide.html[AsciiDoc User Guide]
+
+{CotEditor}'s syntax style file for {AsciiDoc}.
+
+This version is based on the {UserGuide} of version 8.6.9.
+
+Install
+-------
+
+. Go to *Preferences* > *Format* and choose *Import* in the gear icon menu that is just below the installed style list.
+. Choose the YAML file in *Syntaxes* folder.
+
+ChangeLog
+---------
+
+0.1.0::
+    Initial version.
+

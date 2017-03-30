@@ -1,0 +1,224 @@
+metadata:
+  distributionURL: "https://github.com/usami-k/AsciiDoc-coteditor"
+  license: "Apache License"
+  author: "usami-k"
+  version: "0.1.0"
+  lastModified: "2017-03-30"
+extensions:
+- keyString: "asciidoc"
+- keyString: "adoc"
+filenames: []
+interpreters: []
+keywords:
+- description: "Page Break"
+  beginString: "^\\<{3,}$"
+  regularExpression: true
+- description: "Ruler"
+  beginString: "^\\'{3,}$"
+  regularExpression: true
+- description: "Bulleted Lists"
+  beginString: "^[\\t ]*\\-[\\t ]"
+  regularExpression: true
+- description: "Bulleted Lists"
+  beginString: "^[\\t ]*\\*{1,5}[\\t ]"
+  regularExpression: true
+- description: "Numbered Lists (Explicit numbering)"
+  beginString: "^[\\t ]*[0-9]+\\.[\\t ]"
+  regularExpression: true
+- description: "Numbered Lists (Explicit numbering)"
+  beginString: "^[\\t ]*[a-zA-Z]\\.[\\t ]"
+  regularExpression: true
+- description: "Numbered Lists (Explicit numbering)"
+  beginString: "^[\\t ]*[ivxIVX]+\\)[\\t ]"
+  regularExpression: true
+- description: "Numbered Lists (Implicit numbering)"
+  beginString: "^[\\t ]*\\.{1,5}[\\t ]"
+  regularExpression: true
+commands:
+- description: "Labeled Lists"
+  beginString: "^[\\t ]*[^\\n\\:]+\\:{2,4}[\\n\\t ]+"
+  regularExpression: true
+- description: "Labeled Lists"
+  beginString: "^[\\t ]*[^\\n\\;]+\\;{2}[\\n\\t ]+"
+  regularExpression: true
+types:
+- description: "Two line title Level 0"
+  beginString: "^([^\\n\\=\\-\\*\\.\\[\\|][^\\n]*)\\n\\=+$"
+  regularExpression: true
+- description: "Two line title Level 1"
+  beginString: "^([^\\n\\=\\-\\*\\.\\[\\|][^\\n]*)\\n\\-+$"
+  regularExpression: true
+- description: "Two line title Level 2"
+  beginString: "^([^\\n\\=\\-\\*\\.\\[\\|][^\\n]*)\\n\\~+$"
+  regularExpression: true
+- description: "Two line title Level 3"
+  beginString: "^([^\\n\\=\\-\\*\\.\\[\\|][^\\n]*)\\n\\^+$"
+  regularExpression: true
+- description: "Two line title Level 4"
+  beginString: "^([^\\n\\=\\-\\*\\.\\[\\|][^\\n]*)\\n\\++$"
+  regularExpression: true
+- description: "One line title Level 0"
+  beginString: "^\\={1}[\\t ]+(.+?)([\\t ]+\\={1})?$"
+  regularExpression: true
+- description: "One line title Level 1"
+  beginString: "^\\={2}[\\t ]+(.+?)([\\t ]+\\={2})?$"
+  regularExpression: true
+- description: "One line title Level 2"
+  beginString: "^\\={3}[\\t ]+(.+?)([\\t ]+\\={3})?$"
+  regularExpression: true
+- description: "One line title Level 3"
+  beginString: "^\\={4}[\\t ]+(.+?)([\\t ]+\\={4})?$"
+  regularExpression: true
+- description: "One line title Level 4"
+  beginString: "^\\={5}[\\t ]+(.+?)([\\t ]+\\={5})?$"
+  regularExpression: true
+- description: "Block Titles"
+  beginString: "^\\.[^\\n\\t \\.]+.*$"
+  regularExpression: true
+attributes:
+- description: "BlockId Element"
+  beginString: "^\\[{2}[^\\n\\[\\]]+\\]{2}$"
+  regularExpression: true
+- description: "Attribute Entries"
+  beginString: "^\\:[^\\n\\:]+\\:"
+  regularExpression: true
+variables:
+- description: "Emphasized text"
+  beginString: "[\\t ](\\[[^\\[]+?\\])?\\'[^\\n\\']+?\\'[\\n\\t ]"
+  regularExpression: true
+- description: "Emphasized text"
+  beginString: "(\\[[^\\[]+?\\])?\\'{2}[^\\n\\']+?\\'{2}"
+  regularExpression: true
+- description: "Emphasized text"
+  beginString: "[\\t ](\\[[^\\[]+?\\])?\\_[^\\n\\_]+?\\_[\\n\\t ]"
+  regularExpression: true
+- description: "Emphasized text"
+  beginString: "(\\[[^\\[]+?\\])?\\_{2}[^\\n\\_]+?\\_{2}"
+  regularExpression: true
+- description: "Strong text"
+  beginString: "[\\t ](\\[[^\\[]+?\\])?\\*[^\\n\\*]+?\\*[\\n\\t ]"
+  regularExpression: true
+- description: "Strong text"
+  beginString: "(\\[[^\\[]+?\\])?\\*{2}[^\\n\\*]+?\\*{2}"
+  regularExpression: true
+- description: "Monospaced text"
+  beginString: "[\\t ](\\[[^\\[]+?\\])?\\+[^\\n\\+]+?\\+[\\n\\t ]"
+  regularExpression: true
+- description: "Monospaced text"
+  beginString: "(\\[[^\\[]+?\\])?\\+{2}[^\\n\\+]+?\\+{2}"
+  regularExpression: true
+- description: "Unquoted text"
+  beginString: "[\\t ](\\[[^\\[]+?\\])?\\#[^\\n\\#]+?\\#[\\n\\t ]"
+  regularExpression: true
+- description: "Unquoted text"
+  beginString: "(\\[[^\\[]+?\\])?\\#{2}[^\\n\\#]+?\\#{2}"
+  regularExpression: true
+values:
+- description: "URLs"
+  beginString: "(https?|ftp|file|mailto|callto):[^\\n\\[\\]]+\\[[^\\n\\[\\]]*\\]"
+  regularExpression: true
+- description: "Internal Cross References"
+  beginString: "\\<{2}[^\\n\\<\\>]+\\>{2}"
+  regularExpression: true
+- description: "Linking to Local Documents"
+  beginString: "link:[^\\n\\[\\]]+\\[[^\\n\\[\\]]*\\]"
+  regularExpression: true
+- description: "Attribute References"
+  beginString: "\\{[^\\n\\{\\}]+\\}"
+  regularExpression: true
+numbers:
+- description: "Images"
+  beginString: "image:[^\\n\\[\\]]+\\[[^\\n\\[\\]]*\\]"
+  regularExpression: true
+- description: "Tables"
+  beginString: "^[0-9\\.<^>]*\\|"
+  regularExpression: true
+strings:
+- description: "Line Breaks"
+  beginString: "[\\t ]+\\+$"
+  regularExpression: true
+- description: "Replacements"
+  beginString: "(C)"
+  regularExpression: false
+- description: "Replacements"
+  beginString: "(TM)"
+  regularExpression: false
+- description: "Replacements"
+  beginString: "(R)"
+  regularExpression: false
+- description: "Replacements"
+  beginString: "..."
+  regularExpression: false
+- description: "Replacements"
+  beginString: "->"
+  regularExpression: false
+- description: "Replacements"
+  beginString: "<-"
+  regularExpression: false
+- description: "Replacements"
+  beginString: "=>"
+  regularExpression: false
+- description: "Replacements"
+  beginString: "<="
+  regularExpression: false
+characters:
+- description: "Admonition Icons"
+  beginString: "^[\\t ]*NOTE:"
+  regularExpression: true
+- description: "Admonition Icons"
+  beginString: "^[\\t ]*TIP:"
+  regularExpression: true
+- description: "Admonition Icons"
+  beginString: "^[\\t ]*IMPORTANT:"
+  regularExpression: true
+- description: "Admonition Icons"
+  beginString: "^[\\t ]*WARNING:"
+  regularExpression: true
+- description: "Admonition Icons"
+  beginString: "^[\\t ]*CAUTION:"
+  regularExpression: true
+comments:
+- beginString: "^[\\t ]*//[^\\n]*$"
+  regularExpression: true
+outlineMenu:
+- description: "Two line title Level 0"
+  beginString: "^([^\\n\\=\\-\\*\\.\\[\\|][^\\n]*)(?=\\n\\=+$)"
+  bold: true
+  keyString: "$1"
+- description: "Two line title Level 1"
+  beginString: "^([^\\n\\=\\-\\*\\.\\[\\|][^\\n]*)(?=\\n\\-+$)"
+  bold: true
+  keyString: "    $1"
+- description: "Two line title Level 2"
+  beginString: "^([^\\n\\=\\-\\*\\.\\[\\|][^\\n]*)(?=\\n\\~+$)"
+  keyString: "        $1"
+- description: "Two line title Level 3"
+  beginString: "^([^\\n\\=\\-\\*\\.\\[\\|][^\\n]*)(?=\\n\\^+$)"
+  keyString: "            $1"
+- description: "Two line title Level 4"
+  beginString: "^([^\\n\\=\\-\\*\\.\\[\\|][^\\n]*)(?=\\n\\++$)"
+  keyString: "                $1"
+- description: "One line title Level 0"
+  beginString: "^\\={1}[\\t ]+(.+?)([\\t ]+\\={1})?$"
+  bold: true
+  keyString: "$1"
+- description: "One line title Level 1"
+  beginString: "^\\={2}[\\t ]+(.+?)([\\t ]+\\={2})?$"
+  bold: true
+  keyString: "    $1"
+- description: "One line title Level 2"
+  beginString: "^\\={3}[\\t ]+(.+?)([\\t ]+\\={3})?$"
+  keyString: "        $1"
+- description: "One line title Level 3"
+  beginString: "^\\={4}[\\t ]+(.+?)([\\t ]+\\={4})?$"
+  keyString: "            $1"
+- description: "One line title Level 4"
+  beginString: "^\\={5}[\\t ]+(.+?)([\\t ]+\\={5})?$"
+  keyString: "                $1"
+- description: "Page Break"
+  beginString: "^<{3,}$"
+  keyString: "-"
+- description: "Ruler"
+  beginString: "^'{3,}$"
+  keyString: "-"
+completions: []
